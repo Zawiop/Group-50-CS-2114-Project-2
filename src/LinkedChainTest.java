@@ -4,7 +4,7 @@
  * of the specification, and checks that the same generic class stores both
  * application types (Roommate and Chore) with reference-identity equality.
  *
- * @author Arrush Shah
+ * @author Aniket Nair-Das
  * @version Oct 15, 2026
  */
 public class LinkedChainTest
