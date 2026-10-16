@@ -2,7 +2,7 @@
 /**
  * Tests for Roommate, following the storage and model test plan.
  *
- * @author Arrush Shah
+ * @author Aniket Nair-Das
  * @version Oct 15, 2026
  */
 public class RoommateTest
