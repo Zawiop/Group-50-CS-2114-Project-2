@@ -13,7 +13,7 @@ All source and test files are in `src/` (default package). Tests extend
 | `Roommate` | Arrush | Done, tested |
 | `Chore` | Arrush | Done, tested |
 | `ChorePlanner` | Aryaman | Done, tested |
-| `ChorePlannerApp` | _TBD_ | _TBD_ |
+| `ChorePlannerApp` | Shelby | Done, not yet tested |
 
 ## Reflection
 
