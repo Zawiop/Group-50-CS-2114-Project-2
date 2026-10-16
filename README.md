@@ -308,8 +308,8 @@ merged.
 | `src/Chore.java` | Arrush Shah | Wrote with GenAI assistance and tested. Group reviewed. |
 | `src/ChorePlanner.java` | Aryaman Kapoor | Wrote from spec sections 3, 5 and 6 with GenAI assistance, and tested. Group reviewed. |
 | `src/ChorePlannerApp.java` | Shelby Sears | Wrote with GenAI assistance and tested. Group reviewed. |
-| `src/LinkedChainTest.java` | Arrush Shah | Wrote from the section 7 test plan with GenAI assistance. Group reviewed. |
-| `src/RoommateTest.java` | Arrush Shah | Wrote from the section 7 test plan with GenAI assistance. Group reviewed. |
+| `src/LinkedChainTest.java` | Aniket Nair-Das | Wrote from the section 7 test plan with GenAI assistance. Group reviewed. |
+| `src/RoommateTest.java` | Aniket Nair-Das | Wrote from the section 7 test plan with GenAI assistance. Group reviewed. |
 | `src/ChoreTest.java` | Arrush Shah | Wrote from the section 7 test plan with GenAI assistance. Group reviewed. |
 | `src/ChorePlannerTest.java` | Aryaman Kapoor | Wrote from the section 8 planner test plan with GenAI assistance, then ran and checked it. Group reviewed. |
 | `src/ChorePlannerAppTest.java` | Shelby Sears | Wrote with GenAI assistance and tested. Group reviewed. |
