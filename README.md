@@ -151,7 +151,7 @@ unchanged unless a goal truly needs new storage behavior.
 | `LinkedChain` integration, `Roommate`, `Chore`, their tests | Arrush Shah |
 | Model changes needed by stretch goals | Arrush Shah |
 | `ChorePlanner` + `ChorePlannerTest` | Aryaman (done) |
-| `ChorePlannerApp` + tests | _TBD_ |
+| `ChorePlannerApp` + tests | Shelby Sears |
 | Integration scenario run | _TBD_ + Arrush Shah |
 
 ## Attribution
@@ -167,5 +167,5 @@ unchanged unless a goal truly needs new storage behavior.
 | `src/ChorePlanner.java` | Aryaman | Wrote from spec sections 3, 5 and 6 (with GenAI assistance), tested |
 | `src/ChorePlannerApp.java` | _TBD_ | _TBD_ |
 | `src/ChorePlannerTest.java` | Aryaman | Wrote from the section 8 planner test plan (with GenAI assistance), ran and checked |
-| `src/ChorePlannerAppTest.java` | _TBD_ | _TBD_ |
+| `src/ChorePlannerAppTest.java` | Shelby | Wrote (with GenAI assistance), tested |
 
