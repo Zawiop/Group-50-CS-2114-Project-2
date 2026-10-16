@@ -165,7 +165,7 @@ unchanged unless a goal truly needs new storage behavior.
 | `src/RoommateTest.java` | Arrush Shah | Wrote from Shelby's section 7 test plan (with GenAI assistance) |
 | `src/ChoreTest.java` | Arrush Shah | Wrote from Shelby's section 7 test plan (with GenAI assistance) |
 | `src/ChorePlanner.java` | Aryaman | Wrote from spec sections 3, 5 and 6 (with GenAI assistance), tested |
-| `src/ChorePlannerApp.java` | _TBD_ | _TBD_ |
+| `src/ChorePlannerApp.java` | Shelby | Wrote (with GenAI assistance), tested |
 | `src/ChorePlannerTest.java` | Aryaman | Wrote from the section 8 planner test plan (with GenAI assistance), ran and checked |
 | `src/ChorePlannerAppTest.java` | Shelby | Wrote (with GenAI assistance), tested |
 
