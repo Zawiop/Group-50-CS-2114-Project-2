@@ -12,7 +12,7 @@ All source and test files are in `src/` (default package). Tests extend
 | `LinkedChain<T>` | Supplied (integration: Arrush) | Used unchanged |
 | `Roommate` | Arrush | Done, tested |
 | `Chore` | Arrush | Done, tested |
-| `ChorePlanner` | _NAME (fill in)_ | Done, tested |
+| `ChorePlanner` | Aryaman | Done, tested |
 | `ChorePlannerApp` | _TBD_ | _TBD_ |
 
 ## Reflection
@@ -150,7 +150,7 @@ unchanged unless a goal truly needs new storage behavior.
 |---|---|
 | `LinkedChain` integration, `Roommate`, `Chore`, their tests | Arrush Shah |
 | Model changes needed by stretch goals | Arrush Shah |
-| `ChorePlanner` + `ChorePlannerTest` | _NAME (fill in)_ (done) |
+| `ChorePlanner` + `ChorePlannerTest` | Aryaman (done) |
 | `ChorePlannerApp` + tests | _TBD_ |
 | Integration scenario run | _TBD_ + Arrush Shah |
 
@@ -164,12 +164,8 @@ unchanged unless a goal truly needs new storage behavior.
 | `src/LinkedChainTest.java` | Arrush Shah | Wrote from Shelby's section 7 test plan (with GenAI assistance) |
 | `src/RoommateTest.java` | Arrush Shah | Wrote from Shelby's section 7 test plan (with GenAI assistance) |
 | `src/ChoreTest.java` | Arrush Shah | Wrote from Shelby's section 7 test plan (with GenAI assistance) |
-| `src/ChorePlanner.java` | _NAME (fill in)_ | Wrote from spec sections 3, 5 and 6 (with GenAI assistance), tested |
+| `src/ChorePlanner.java` | Aryaman | Wrote from spec sections 3, 5 and 6 (with GenAI assistance), tested |
 | `src/ChorePlannerApp.java` | _TBD_ | _TBD_ |
-| `src/ChorePlannerTest.java` | _NAME (fill in)_ | Wrote from the section 8 planner test plan (with GenAI assistance), ran and checked |
+| `src/ChorePlannerTest.java` | Aryaman | Wrote from the section 8 planner test plan (with GenAI assistance), ran and checked |
 | `src/ChorePlannerAppTest.java` | _TBD_ | _TBD_ |
 
-**How we used GenAI:** _NAME (fill in)_ used GenAI (Claude) to draft
-`ChorePlanner` and `ChorePlannerTest` from our specification. The team's
-choices came from the spec; the draft was then compiled, tested and
-reviewed against it. _Edit this note to describe how you actually used it._
