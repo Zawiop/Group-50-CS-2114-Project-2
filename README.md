@@ -12,7 +12,7 @@ All source and test files are in `src/` (default package). Tests extend
 | `LinkedChain<T>` | Supplied (integration: Arrush) | Used unchanged |
 | `Roommate` | Arrush | Done, tested |
 | `Chore` | Arrush | Done, tested |
-| `ChorePlanner` | _TBD_ | _TBD_ |
+| `ChorePlanner` | _NAME (fill in)_ | Done, tested |
 | `ChorePlannerApp` | _TBD_ | _TBD_ |
 
 ## Reflection
@@ -44,7 +44,34 @@ All source and test files are in `src/` (default package). Tests extend
   (`LinkedChain<Roommate>.add(new Chore(...))`) was checked by hand. It
   can't live in a test file that compiles, so it isn't in the suite.
 
-_Planner/console changes: TBD by owners._
+**Planner (ChorePlanner):**
+- Every public method and signature matches section 5. No public methods
+  were added or dropped, and `ChorePlanner` holds the two chains as private
+  fields (it does not extend `LinkedChain`).
+- The spec fixed some messages but not all. Fixed by the spec and used
+  as written: `"Roommate ID already exists."`, `"Week limit reached."`, and
+  the two schedule messages (`"Week W: No chores to assign."` and
+  `"Week W: Add at least one roommate before generating a schedule."`).
+  We chose the wording for the `advanceWeek` empty-state exception
+  (`"Add at least one roommate and one chore before advancing the week."`)
+  and the schedule layout: a `Week W schedule:` header, then one line per
+  chore such as `1. Trash (Tie bag): Aniket (ID 10)`. The description is
+  left out when it is empty.
+- Validation lives where section 6 put it. The model constructors check
+  field values, `addRoommate` checks for duplicate IDs (by scanning
+  `getRoommates()`, not `contains`), and `LinkedChain.get` checks removal
+  positions. `ChorePlanner` does not repeat the checks the model and the
+  chain already do.
+- The planner does not print the "Lists changed; current-week assignments
+  have been regenerated." message. The spec puts that in the console, so it
+  will be added in `ChorePlannerApp`.
+- `ChorePlannerTest` follows the section 8 planner table: a normal case and
+  a bad-input/boundary case for every public method, plus the integration
+  scenario (weeks 1-4, and the week 2 removal and addition). The max-week
+  branch has no public setter, so its test sets `weekNumber` with
+  reflection (the "test-only fixture" idea from section 8).
+
+_Console changes: TBD by the `ChorePlannerApp` owner._
 
 ### What changed in the LinkedChain?
 
@@ -62,22 +89,43 @@ are needed.
 - **Getting a typed array out of a generic chain** — solved. The caller passes
   a correctly typed array to `toArray`, so there are no unchecked casts
   (`LinkedChainTest.testReuseWithBothModelTypes`).
-- _Remaining unknowns from the scope: TBD by planner/console owners._
+- **Chores or roommates added or removed mid-week** — solved. The planner
+  stores no schedule. `generateSchedule` recomputes everything from the
+  chains and `weekNumber` each time, so an edit keeps the week and shifts
+  assignments by the new insertion order (`ChorePlannerTest.testMidWeekEdits`
+  checks IDs 30, 10, 30, 10 after removing a roommate in week 2, and
+  30, 40, 10, 30 after adding ID 40).
+- **How to organize and display the chain data** — solved for the planner.
+  It converts each chain to a typed array and builds the text with a
+  `StringBuilder`. Still open for the console: _TBD by the
+  `ChorePlannerApp` owner._
 
 ### What doesn't work yet?
 
 - Storage and model layer: all 47 tests in `LinkedChainTest`, `RoommateTest`
   and `ChoreTest` pass. Nothing is known to be missing from these classes.
-- _Planner and console status: TBD._
+- Planner: all 31 tests in `ChorePlannerTest` pass (78 across the four test
+  classes). Nothing is known to be missing from `ChorePlanner`.
+- The max-week branch of `advanceWeek` is tested only through reflection,
+  not through real use.
+- Console: `ChorePlannerApp` and its tests do not exist yet, so there is no
+  menu and the app cannot be run by a user.
+- The section 8 integration scenario has been checked in
+  `ChorePlannerTest` but has not been run through the console menu.
 
 ## Next Steps
 
 ### What is left to finish the MVP?
 
-1. _TBD:_ `ChorePlanner` (add/remove roommates and chores, `generateSchedule`, `advanceWeek`).
-2. _TBD:_ `ChorePlannerApp` menu and input handling.
-3. Arrush: once the planner exists, help run the section 8 integration
-   scenario (3 roommates and 4 chores across weeks 1–4, then mid-week edits).
+1. _TBD:_ `ChorePlannerApp`: the menu (choices 0-7), re-prompting on bad
+   numbers and unknown choices, 1-based removal positions, clean exit at
+   EOF, and the "Lists changed..." message plus new schedule after each
+   successful add or remove.
+2. _TBD:_ `ChorePlannerAppTest`: scripted `Scanner` input for a valid run,
+   a run full of bad input, EOF, and a null `Scanner`.
+3. Arrush plus the console owner: run the section 8 integration scenario
+   through the menu (3 roommates and 4 chores across weeks 1–4, then
+   mid-week edits).
 
 ### Which stretch goals will we attempt?
 
@@ -93,7 +141,8 @@ unchanged unless a goal truly needs new storage behavior.
 - If we ever override `equals` on a model, rerun
   `LinkedChainTest.testReferenceEquality` and the position-removal test. The
   section 2 equality policy would need updating.
-- _Planner/console tests: TBD (see spec section 8)._
+- Console tests (`ChorePlannerAppTest`): TBD, see spec section 8. Each public
+  method of `ChorePlannerApp` needs a normal case and a bad-input case.
 
 ### Who does what?
 
@@ -101,7 +150,7 @@ unchanged unless a goal truly needs new storage behavior.
 |---|---|
 | `LinkedChain` integration, `Roommate`, `Chore`, their tests | Arrush Shah |
 | Model changes needed by stretch goals | Arrush Shah |
-| `ChorePlanner` + tests | _TBD_ |
+| `ChorePlanner` + `ChorePlannerTest` | _NAME (fill in)_ (done) |
 | `ChorePlannerApp` + tests | _TBD_ |
 | Integration scenario run | _TBD_ + Arrush Shah |
 
@@ -115,6 +164,12 @@ unchanged unless a goal truly needs new storage behavior.
 | `src/LinkedChainTest.java` | Arrush Shah | Wrote from Shelby's section 7 test plan (with GenAI assistance) |
 | `src/RoommateTest.java` | Arrush Shah | Wrote from Shelby's section 7 test plan (with GenAI assistance) |
 | `src/ChoreTest.java` | Arrush Shah | Wrote from Shelby's section 7 test plan (with GenAI assistance) |
-| `src/ChorePlanner.java` | _TBD_ | _TBD_ |
+| `src/ChorePlanner.java` | _NAME (fill in)_ | Wrote from spec sections 3, 5 and 6 (with GenAI assistance), tested |
 | `src/ChorePlannerApp.java` | _TBD_ | _TBD_ |
-| Planner/console test files | _TBD_ | _TBD_ |
+| `src/ChorePlannerTest.java` | _NAME (fill in)_ | Wrote from the section 8 planner test plan (with GenAI assistance), ran and checked |
+| `src/ChorePlannerAppTest.java` | _TBD_ | _TBD_ |
+
+**How we used GenAI:** _NAME (fill in)_ used GenAI (Claude) to draft
+`ChorePlanner` and `ChorePlannerTest` from our specification. The team's
+choices came from the spec; the draft was then compiled, tested and
+reviewed against it. _Edit this note to describe how you actually used it._
